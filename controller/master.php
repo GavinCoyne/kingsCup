@@ -3,14 +3,17 @@
 class Master {
 
 	public $content;
-	
-	function __construct() {
-		
-    }
+	public $title;
 	
 	public function render()
 	{
 		include "./view/template.php";
+	}
+	
+	public function notFound()
+	{
+		$this->content = "Action not found.";
+		$this->render();
 	}
 
 }

@@ -1,22 +1,9 @@
 <?php 
-
 include "/controller/master.php";
 include "/controller/rules.php";
 
-
 $page = new rules();
 
-if(isset($_GET['action']))
-{
-	$action = $_GET['action'];
-}else
-{
-	$action = "index";
-}
+$action = (isset($_GET['action']) ? $_GET['action'] : "index");
+(method_exists($page, $action) ? $page->$action() : $page->notFound());
 
-if(function_exists($page->$action())
-{
-	$page->$action();
-}else{
-	$page->index();
-}
