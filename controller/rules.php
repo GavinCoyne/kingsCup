@@ -19,13 +19,17 @@ class Rules extends Master {
    
    public function doStuff()
    {
-		
-		
 		$this->content = "doStuff";
 		$this->title = "DOSTUFF!";
-		$this->render();
+		$this->render();//call the view rendering function of master.php
    }
    
-   
-	
+   public function createAccount()
+   {
+   		$db = new DB();
+		$db->connect();
+		$db->select();
+   		echo json_encode(array("success"=>"stuff"));
+   	
+   }
 }
